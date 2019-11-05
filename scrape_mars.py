@@ -14,6 +14,8 @@ mars_web = {}
 hemisphere_image_urls = []
 # #news scrape
 def scrape_news():
+    
+    
     browser = init_browser()
     
     #Launches Website

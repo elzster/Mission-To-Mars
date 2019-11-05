@@ -10,15 +10,15 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def index():
-    mars_db = mongo.db.mars.find_one()
+    mars = mongo.db.mars.find_one()
+    return render_template("index.html", mars = mars)
     
-    return render_template("index.html", listings=listings)
-
-
 @app.route("/scrape")
 def scraper():
+    # listings = mongo.db.listings
+    # listings_data = scrape_craigslist.scrape()
     
-    mars_db = mongo.db.mars
+    mars = mongo.db.mars
     mars_web = scrape_mars.scrape_news()
     mars_web = scrape_mars.scrape_marsImg()
     mars_web = scrape_mars.scrape_marsTwitter()
@@ -28,7 +28,7 @@ def scraper():
     mars_web = scrape_mars.scrape_marsHemi3()
     mars_web = scrape_mars.scrape_marsHemi4()
     
-    mars_db.update({}, mars_web, upsert=True)
+    mars.update({}, mars_web, upsert=True)
     return redirect("/", code=302)
 
 
