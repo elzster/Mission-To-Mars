@@ -76,7 +76,7 @@ def scrape_marsFacts():
     browser.visit(url)
     html=browser.html
     soup = bs(html, 'html.parser')
-    tables_df = ((pd.read_html(url))[1]).rename(columns={0: "Attribute", 1: "Value"})
+    tables_df = ((pd.read_html(url))[1]).rename(columns={0: "Attribute", 1: "Value"}).set_index(['Attribute'])
     html_table = (tables_df.to_html()).replace('\n', '')
     
     mars_web['mars_data'] = html_table

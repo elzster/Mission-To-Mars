@@ -7,6 +7,16 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars!!!</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+      img {
+        vertical-align: middle;
+        height: 350px;
+        width: 525px;
+    }
+    .border {
+      border-right: 1px solid black;
+    }
+  </style>
 </head>
 
 <body>
@@ -16,14 +26,52 @@
       <h1>Mission To Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-
-    <!-- Craigslist Listings -->
-    <div class="row" id="craiglist-listings">
+  
+    <div class="container">
+    <div class="row">
       <div class="col-md-12">
-        <h4 class="heading">{{mars.latest_news_title}}</h4>
-        <small></small>
+        <h2 class="heading">Latest Mars News</h2>
+        <b><h3 class="heading">{{mars.latest_news_date}}<br>{{mars.latest_news_title}}</h3></b>
+        <p>{{mars.latest_news_paragraph}}</p>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <h2 class="heading">Featured Mars Image</h2>
+          <img src="{{mars.featured_image}}">
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+            <span class="border">
+            <b><h4>Current Weather On Mars</h4></b>
+              <p>{{mars.mars_weather}}</p>
+            </span>
+            <div class="row">
+              <h4 class="header"> Mars Facts</h4>
+                <table>
+                  {{mars.mars_data}}
+                </table>
+            </div>
+        </div>
+        </div>
+      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+            <h2 class="heading">Mars Hemispheres</h2>
+            <img src="{{mars.hemisphere_urls[0]}}">
+            <img src="{{mars.hemisphere_urls[1]}}">
+            <img src="{{mars.hemisphere_urls[2]}}">
+            <img src="{{mars.hemisphere_urls[3]}}">
+            
+        </div>
       </div>
     </div>
+    </div>
+      </div>
+    </div>
+  </div>
 
   </div>
 </body>
