@@ -24,6 +24,7 @@ After the data extraction, flask would then render the information from MongoDB 
 Posted Below are some of the screenshots of the final project:
 
 ![Screenshot1](/images/image1.png)
+---------------------------------------------------------
 
 ![Screenshot2](/images/image2.png)
 
